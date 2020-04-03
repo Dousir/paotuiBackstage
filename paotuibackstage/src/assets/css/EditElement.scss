@@ -55,6 +55,7 @@
   bottom: 0;
   height: 1px;
 }
+
 .el-dialog__header {
   .el-dialog__title {
     font-size: 14px;
@@ -74,6 +75,7 @@
 .el-input__inner,.el-input__icon{
   height: 32px;
   line-height: 32px;
+  width: 240px;
 }
 
 // 下拉选择器，禁用状态隐藏下拉图标
@@ -258,3 +260,12 @@
   }
 }
 
+.el-form-input-item-f-l{
+  float: left;
+}
+.el-table td{
+  border-left: 1px solid #EBEEF5;
+}
+.el-table__body{
+  border-right: 1px solid #EBEEF5;
+}

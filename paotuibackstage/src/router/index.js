@@ -9,7 +9,7 @@ Vue.use(Router)
  * **/
 const _loadComponent = (componentName, dirNameIndex) => {
     // 首页，
-    let dirNameArr = ['Home','Product']
+    let dirNameArr = ['Home','Product','Sort']
     return () =>
         import (`@/components/${dirNameArr[dirNameIndex]}/${componentName}`)
 }
@@ -37,8 +37,8 @@ export default new Router({
             children: [
                 _getRouterPath('home', 0, '首页'),
                 _getRouterPath('productmanagement', 1, '产品管理'),
+                _getRouterPath('sort', 2, '分类管理'),
             ]
         },
     ]
 })
-console.log()

@@ -1,22 +1,22 @@
 
 <template>
     <el-submenu index="1">
-                    <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>产品管理</span>
-                    </template>
-                    <el-menu-item-group >
-                        <el-menu-item @click="toProductManagement" index='/home'>产品管理</el-menu-item>
-                        <el-menu-item index="/productmanagement">分类管理</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+        <template slot="title">
+        <i class="el-icon-location"></i>
+        <span>产品管理</span>
+        </template>
+        <el-menu-item-group >
+            <el-menu-item @click="toProductManagement" index='/home'>产品管理</el-menu-item>
+            <el-menu-item index="/sort">分类管理</el-menu-item>
+        </el-menu-item-group>
+    </el-submenu>
 </template>
 <script>
     export default{
         name:'menuDom',//模板名称
         data(){
             return {
-                windosHeight:10,
+               
             }
         },
         beforeMount(){},
