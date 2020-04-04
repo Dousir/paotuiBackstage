@@ -5,8 +5,14 @@
     </div>
     <div class="search-box">
       <el-form ref="form" :model="form" label-width="80px" class="clearfix mt-20 mb-40">
-        <el-form-item label="订单编号" >
+        <el-form-item label="订单编号" class="el-form-input-item-f-l">
           <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="订单状态"  class="el-form-input-item-f-l">
+          <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-option label="已付款" value="shanghai"></el-option>
+            <el-option label="未付款" value="beijing"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="日期搜索" >
           <el-date-picker
@@ -16,14 +22,6 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期">
           </el-date-picker>
-        </el-form-item>
-        <el-form-item label="订单状态" >
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="已付款" value="shanghai"></el-option>
-            <el-option label="未付款" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item class="el-form-input-item-f-l">
           <el-button type="primary" @click="onSubmit">搜索</el-button>
           <el-button>清空</el-button>
         </el-form-item>
