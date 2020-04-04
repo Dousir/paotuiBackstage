@@ -1,15 +1,18 @@
 
 <template>
-    <el-submenu index="1">
-        <template slot="title">
-        <i class="el-icon-location"></i>
-        <span>产品管理</span>
-        </template>
-        <el-menu-item-group >
-            <el-menu-item @click="toProductManagement" index='/home'>产品管理</el-menu-item>
-            <el-menu-item index="/sort">分类管理</el-menu-item>
-        </el-menu-item-group>
-    </el-submenu>
+<el-submenu index="1">
+    <el-menu-item-group>
+        <template slot="title">产品管理</template>
+        <el-menu-item @click="toProductManagement" index='/home'>产品管理</el-menu-item>
+        <el-menu-item index="/sort">分类管理</el-menu-item>
+    </el-menu-item-group>
+    <el-menu-item-group title="会员管理">
+        <el-menu-item index="/memberManagement">会员管理</el-menu-item>
+    </el-menu-item-group>
+    <el-menu-item-group title="订单管理">
+        <el-menu-item index="/orderlist">订单管理</el-menu-item>
+    </el-menu-item-group>
+</el-submenu>
 </template>
 <script>
     export default{

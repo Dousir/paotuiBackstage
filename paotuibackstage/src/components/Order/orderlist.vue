@@ -1,17 +1,26 @@
 <template>
   <div class='sort-box'>
     <div class="page-title">
-      分类管理
+      订单列表
     </div>
     <div class="search-box">
       <el-form ref="form" :model="form" label-width="80px" class="clearfix mt-20 mb-40">
-        <el-form-item label="分类名称" class="el-form-input-item-f-l">
+        <el-form-item label="订单编号" >
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="状态" class="el-form-input-item-f-l">
+        <el-form-item label="日期搜索" >
+          <el-date-picker
+            v-model="searchDate"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="订单状态" >
           <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="启用" value="shanghai"></el-option>
-            <el-option label="停用" value="beijing"></el-option>
+            <el-option label="已付款" value="shanghai"></el-option>
+            <el-option label="未付款" value="beijing"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item class="el-form-input-item-f-l">
@@ -23,17 +32,17 @@
     <div class="table-box">
       <el-button type="primary" class="mb-20"  @click="dialogFormVisible = true">新增分类</el-button>
       <el-table :data="tableData" stripe style="width: 100%" >
-        <el-table-column prop="date" label="序号" width=""></el-table-column>
-        <el-table-column prop="name" label="标签名称" width=""></el-table-column>
+        <el-table-column prop="date" label="订单编号" width=""></el-table-column>
+        <el-table-column prop="name" label="下单时间" width=""></el-table-column>
+        <el-table-column prop="name" label="商品" width=""></el-table-column>
         <el-table-column prop="name" label="状态" width=""></el-table-column>
-        <el-table-column prop="name" label="排序" width=""></el-table-column>
+        <el-table-column prop="name" label="下单量" width=""></el-table-column>
         <el-table-column
           fixed="right"
           label="操作"
           width="100">
           <template >
-            <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
-            <el-button type="text" size="small"  @click="centerDialogVisible = true">删除</el-button>
+            <el-button type="success" icon="el-icon-check" alt='已发货' circle></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -45,33 +54,7 @@
         :total="1000">
       </el-pagination>
     </div>
-    <!-- 添加分类框 -->
-    <el-dialog title="新增分类" :visible.sync="dialogFormVisible">
-      <el-form :model="form">
-        <el-form-item label="分类名称" >
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="排序" >
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-      </div>
-    </el-dialog>
-    <!-- 确定删除提示框 -->
-    <el-dialog
-      title="提示"
-      :visible.sync="centerDialogVisible"
-      width="30%"
-      center>
-      <span>确定删除当前分类？</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
-      </span>
-    </el-dialog>
+    
   </div>
 </template>
 
@@ -80,8 +63,7 @@
     name: '',
     data(){
       return{
-        dialogFormVisible: false, //添加分类弹窗
-        centerDialogVisible:false,  //删除分类弹框
+        searchDate:'',
         tableData: [{
           date: '2016-05-02',
           name: '王小虎',

@@ -21,6 +21,9 @@
 .el-table::before{
   height: 0px;
 }
+.pagination{
+  margin: 20px 0;
+}
 .el-table__body tr.hover-row.current-row>td, 
 .el-table__body tr.hover-row.el-table__row--striped.current-row>td, 
 .el-table__body tr.hover-row.el-table__row--striped>td, 

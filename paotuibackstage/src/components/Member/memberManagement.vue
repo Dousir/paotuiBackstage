@@ -1,19 +1,14 @@
 <template>
   <div class='sort-box'>
     <div class="page-title">
-      分类管理
+      会员管理
     </div>
     <div class="search-box">
       <el-form ref="form" :model="form" label-width="80px" class="clearfix mt-20 mb-40">
-        <el-form-item label="分类名称" class="el-form-input-item-f-l">
+        <el-form-item label="用户昵称" class="el-form-input-item-f-l">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="状态" class="el-form-input-item-f-l">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="启用" value="shanghai"></el-option>
-            <el-option label="停用" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
+       
         <el-form-item class="el-form-input-item-f-l">
           <el-button type="primary" @click="onSubmit">搜索</el-button>
           <el-button>清空</el-button>
@@ -23,11 +18,12 @@
     <div class="table-box">
       <el-button type="primary" class="mb-20"  @click="dialogFormVisible = true">新增分类</el-button>
       <el-table :data="tableData" stripe style="width: 100%" >
-        <el-table-column prop="date" label="序号" width=""></el-table-column>
-        <el-table-column prop="name" label="标签名称" width=""></el-table-column>
+        <el-table-column prop="date" label="id" width=""></el-table-column>
+        <el-table-column prop="name" label="用户名称" width=""></el-table-column>
+        <el-table-column prop="name" label="用户头像" width=""></el-table-column>
         <el-table-column prop="name" label="状态" width=""></el-table-column>
-        <el-table-column prop="name" label="排序" width=""></el-table-column>
-        <el-table-column
+        <el-table-column prop="name" label="下单量" width=""></el-table-column>
+        <!-- <el-table-column
           fixed="right"
           label="操作"
           width="100">
@@ -35,7 +31,7 @@
             <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
             <el-button type="text" size="small"  @click="centerDialogVisible = true">删除</el-button>
           </template>
-        </el-table-column>
+        </el-table-column> -->
       </el-table>
       <!-- 分页 -->
       <el-pagination
@@ -45,33 +41,6 @@
         :total="1000">
       </el-pagination>
     </div>
-    <!-- 添加分类框 -->
-    <el-dialog title="新增分类" :visible.sync="dialogFormVisible">
-      <el-form :model="form">
-        <el-form-item label="分类名称" >
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="排序" >
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-      </div>
-    </el-dialog>
-    <!-- 确定删除提示框 -->
-    <el-dialog
-      title="提示"
-      :visible.sync="centerDialogVisible"
-      width="30%"
-      center>
-      <span>确定删除当前分类？</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
