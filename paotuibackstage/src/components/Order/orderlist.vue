@@ -9,7 +9,7 @@
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="订单状态"  class="el-form-input-item-f-l">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
+          <el-select v-model="form.region" placeholder="请选择订单状态">
             <el-option label="已付款" value="shanghai"></el-option>
             <el-option label="未付款" value="beijing"></el-option>
           </el-select>
@@ -28,19 +28,24 @@
       </el-form>
     </div>
     <div class="table-box">
-      <el-button type="primary" class="mb-20"  @click="dialogFormVisible = true">新增分类</el-button>
+      <!-- <el-button type="primary" class="mb-20"  @click="dialogFormVisible = true">新增分类</el-button> -->
       <el-table :data="tableData" stripe style="width: 100%" >
         <el-table-column prop="date" label="订单编号" width=""></el-table-column>
         <el-table-column prop="name" label="下单时间" width=""></el-table-column>
+        <el-table-column prop="name" label="付款时间" width=""></el-table-column>
         <el-table-column prop="name" label="商品" width=""></el-table-column>
+        <el-table-column prop="name" label="收货地址" width=""></el-table-column>
+        <el-table-column prop="name" label="收货人信息" width=""></el-table-column>
+        <el-table-column prop="name" label="备注" width=""></el-table-column>
+        <el-table-column prop="name" label="评价" width=""></el-table-column>
         <el-table-column prop="name" label="状态" width=""></el-table-column>
-        <el-table-column prop="name" label="下单量" width=""></el-table-column>
         <el-table-column
           fixed="right"
           label="操作"
           width="100">
           <template >
-            <el-button type="success" icon="el-icon-check" alt='已发货' circle></el-button>
+            <el-tag type="success">已送货</el-tag>
+            <el-tag type="info">已收货</el-tag>
           </template>
         </el-table-column>
       </el-table>
